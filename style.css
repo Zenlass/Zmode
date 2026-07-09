@@ -1,0 +1,520 @@
+/* ======================================================
+   ZMODE V2 - STYLE.CSS
+====================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#050505;
+
+    color:#fff;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+    radial-gradient(circle at top,#7b2cff22,transparent 35%),
+    radial-gradient(circle at bottom,#6d28d922,transparent 40%),
+    #050505;
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+body.loaded{
+
+    opacity:1;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:420px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:rgba(20,20,20,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(170,80,255,.35);
+
+    box-shadow:
+    0 0 25px rgba(123,44,255,.35),
+    0 0 60px rgba(123,44,255,.15);
+
+    animation:fadeUp 1s ease;
+
+    z-index:2;
+
+}
+
+/* Border Glow */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    45deg,
+    #7b2cff,
+    #b84dff,
+    #7b2cff,
+    #9f5fff);
+
+    animation:borderMove 8s linear infinite;
+
+    z-index:-2;
+
+}
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:28px;
+
+    background:#111;
+
+    z-index:-1;
+
+}
+
+/* ===========================
+   AVATAR
+=========================== */
+
+.avatar{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #9f5fff;
+
+    box-shadow:
+    0 0 20px #9f5fff,
+    0 0 45px #7b2cff;
+
+    transition:.4s;
+
+}
+
+.avatar:hover{
+
+    transform:scale(1.08) rotate(3deg);
+
+    box-shadow:
+    0 0 35px #b84dff,
+    0 0 70px #7b2cff;
+
+}
+
+/* ===========================
+   TITLU
+=========================== */
+
+h1{
+
+    margin-top:25px;
+
+    font-size:55px;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:#c084fc;
+
+    text-shadow:
+
+    0 0 10px #9333ea,
+
+    0 0 25px #9333ea,
+
+    0 0 60px #7b2cff;
+
+}
+
+.subtitle{
+
+    margin-top:12px;
+
+    color:#bdbdbd;
+
+    letter-spacing:4px;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.buttons a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+    90deg,
+    #6d28d9,
+    #9333ea);
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 0 20px rgba(123,44,255,.45);
+
+}
+
+.buttons a:hover{
+
+    transform:translateY(-5px) scale(1.03);
+
+    box-shadow:
+
+    0 0 25px #9f5fff,
+
+    0 0 60px #9f5fff;
+
+}
+
+/* ===========================
+   ANIMATII
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes borderMove{
+
+    from{
+
+        filter:hue-rotate(0deg);
+
+    }
+
+    to{
+
+        filter:hue-rotate(360deg);
+
+    }
+
+}
+
+ /* ======================================================
+    PARTICULE
+====================================================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:#b84dff;
+
+    box-shadow:0 0 15px #b84dff;
+
+    animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-120vh);
+
+    }
+
+}
+
+/* ======================================================
+   CURSOR GLOW
+====================================================== */
+
+#cursorGlow{
+
+    position:fixed;
+
+    width:320px;
+
+    height:320px;
+
+    background:
+    radial-gradient(circle,
+    rgba(180,77,255,.22),
+    transparent 70%);
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    transition:.08s;
+
+    z-index:1;
+
+}
+
+/* ======================================================
+   LOADER
+====================================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+    transition:.8s;
+
+}
+
+#loader h1{
+
+    font-size:72px;
+
+    font-family:'Orbitron';
+
+    color:#c084fc;
+
+    text-shadow:
+
+    0 0 15px #9333ea,
+
+    0 0 50px #7b2cff;
+
+}
+
+.loadingBar{
+
+    width:260px;
+
+    height:8px;
+
+    background:#222;
+
+    border-radius:50px;
+
+    margin-top:30px;
+
+    overflow:hidden;
+
+}
+
+.progress{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    #7b2cff,
+    #b84dff);
+
+    box-shadow:0 0 20px #b84dff;
+
+    animation:loading 2s forwards;
+
+}
+
+@keyframes loading{
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer{
+
+    margin-top:35px;
+
+    color:#888;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    z-index:2;
+
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:600px){
+
+    .card{
+
+        width:92%;
+
+        padding:30px;
+
+    }
+
+    .avatar{
+
+        width:140px;
+
+        height:140px;
+
+    }
+
+    h1{
+
+        font-size:42px;
+
+    }
+
+    .buttons a{
+
+        padding:16px;
+
+        font-size:15px;
+
+    }
+
+    footer{
+
+        font-size:12px;
+
+    }
+
+}
